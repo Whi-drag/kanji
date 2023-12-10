@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Stick&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap" rel="stylesheet">
+    <style>
+        .canvas-space {
+            position: fixed;
+            bottom: 0;
+        }
+
+        #canvas {
+            border: 1px solid #000000;
+            background: rgba(255, 255, 232, 0.5);
+            max-width: 100%;
+            height: auto;
+            max-height: 100%
+        }
+
+        button {
+            font-size: 4vmax;
+        }
+
+        .title {
+            font-family: 'Stick', sans-serif;
+            font-size: 7vw;
+            text-align: center;
+        }
+
+        .Japanese {
+            height: 100vh;
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            font-size: 6vw;
+            text-align: center;
+        }
+
+        .Kanji {
+            height: 50vw;
+            font-family: 'Klee One', cursive;
+            font-size: 10vw;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="title">二学期末<br>漢字書き取り</p>
+    <div class="canvas-space">
+        <canvas id="canvas" height="300"></canvas>
+        <button type="button" onclick="clearCanvas()">×</button>
+        <button type="button" onclick="prevCanvas()">←</button>
+        <button type="button" onclick="nextCanvas()">→</button>
+    </div>
+    <div id="rnj"></div>
+    <div class="Japanese">たか</div>
+    <div class="Kanji">鷹</div>
+    <div class="Japanese">かわうそ</div>
+    <div class="Kanji">獺</div>
+    <div class="Japanese">れい</div>
+    <div class="Kanji">靈(霊)</div>
+    <div class="Japanese">やじゅう</div>
+    <div class="Kanji">野獣</div>
+    <div class="Japanese">まるきぶね</div>
+    <div class="Kanji">独木舟</div>
+
+    <div class="Japanese">すいり</div>
+    <div class="Kanji">水狸</div>
+    <div class="Japanese">ひし</div>
+    <div class="Kanji">菱</div>
+    <div class="Japanese">ひんば</div>
+    <div class="Kanji">牝馬</div>
+    <div class="Japanese">どれい</div>
+    <div class="Kanji">奴隷</div>
+    <div class="Japanese">ひょうかん</div>
+    <div class="Kanji">剽悍</div>
+
+    <div class="Japanese">えんげつとう</div>
+    <div class="Kanji">偃月刀</div>
+    <div class="Japanese">こはん</div>
+    <div class="Kanji">湖畔</div>
+    <div class="Japanese">すみか</div>
+    <div class="Kanji">栖処</div>
+    <div class="Japanese">はしげた</div>
+    <div class="Kanji">橋桁</div>
+    <div class="Japanese">てっする</div>
+    <div class="Kanji">徹する</div>
+
+    <div class="Japanese">たくみ</div>
+    <div class="Kanji">巧み</div>
+    <div class="Japanese">せんめつ</div>
+    <div class="Kanji">殲滅</div>
+    <div class="Japanese">しっぷう</div>
+    <div class="Kanji">疾風</div>
+    <div class="Japanese">したい</div>
+    <div class="Kanji">屍体</div>
+    <div class="Japanese">ずがいこつ</div>
+    <div class="Kanji">頭蓋骨</div>
+
+    <div class="Japanese">ときん</div>
+    <div class="Kanji">鍍金</div>
+    <div class="Japanese">どくろ</div>
+    <div class="Kanji">髑髏</div>
+    <div class="Japanese">はずかしめ</div>
+    <div class="Kanji">辱め</div>
+    <div class="Japanese">まさかり</div>
+    <div class="Kanji">鉞</div>
+    <div class="Japanese">いたむ</div>
+    <div class="Kanji">悼む</div>
+
+    <div class="Japanese">うわごと</div>
+    <div class="Kanji">譫言</div>
+    <div class="Japanese">ばんじん</div>
+    <div class="Kanji">蛮人</div>
+    <div class="Japanese">たおれる</div>
+    <div class="Kanji">斃れた</div>
+    <div class="Japanese">てんまつ</div>
+    <div class="Kanji">顛末</div>
+    <div class="Japanese">くびすじ</div>
+    <div class="Kanji">頸筋</div>
+
+    <div class="Japanese">ぼうぜん</div>
+    <div class="Kanji">茫然</div>
+    <div class="Japanese">つく</div>
+    <div class="Kanji">憑く</div>
+    <div class="Japanese">はやぶさ</div>
+    <div class="Kanji">隼</div>
+    <div class="Japanese">めろう</div>
+    <div class="Kanji">牝狼</div>
+    <div class="Japanese">いつ</div>
+    <div class="Kanji">凍つ</div>
+
+    <div class="Japanese">こうこつ</div>
+    <div class="Kanji">恍惚</div>
+    <div class="Japanese">ぼうが</div>
+    <div class="Kanji">忘我</div>
+    <div class="Japanese">せい</div>
+    <div class="Kanji">所為</div>
+    <div class="Japanese">ぼんよう</div>
+    <div class="Kanji">凡庸</div>
+    <div class="Japanese">もみ</div>
+    <div class="Kanji">樅</div>
+
+    <div class="Japanese">ひょうとう</div>
+    <div class="Kanji">剽盗</div>
+    <div class="Japanese">もとる</div>
+    <div class="Kanji">悖る</div>
+    <div class="Japanese">おうし</div>
+    <div class="Kanji">牡牛</div>
+    <div class="Japanese">りんしょく</div>
+    <div class="Kanji">吝嗇</div>
+    <div class="Japanese">しゅうちょう</div>
+    <div class="Kanji">酋長</div>
+
+    <div class="Japanese">はげ</div>
+    <div class="Kanji">禿</div>
+    <div class="Japanese">かんち</div>
+    <div class="Kanji">奸智</div>
+    <div class="Japanese">がもう</div>
+    <div class="Kanji">鵝毛</div>
+    <div class="Japanese">こもる</div>
+    <div class="Kanji">籠る</div>
+    <div class="Japanese">あし</div>
+    <div class="Kanji">蘆</div>
+
+    <div class="Japanese">ばか</div>
+    <div class="Kanji">莫迦</div>
+    <div class="Japanese">ひげ</div>
+    <div class="Kanji">鬚</div>
+    <div class="Japanese">かんけつ</div>
+    <div class="Kanji">奸譎</div>
+    <div class="Japanese">けやき</div>
+    <div class="Kanji">欅</div>
+    <div class="Japanese">こずえ</div>
+    <div class="Kanji">梢</div>
+
+    <div class="Japanese">きょうえん</div>
+    <div class="Kanji">饗宴</div>
+    <div class="Japanese">こくう</div>
+    <div class="Kanji">虚空</div>
+
+
+    <script>
+        var canvas = document.getElementById('canvas'),
+            ctx = canvas.getContext('2d'),
+            moveflg = 0,
+            Xpoint,
+            Ypoint;
+
+        canvas.width = document.documentElement.clientWidth - 20;
+
+        //初期値（サイズ、色、アルファ値）の決定
+        var defSize = 5,
+            defColor = "#555";
+
+        // キャンバスを白色に塗る
+        ctx.fillStyle = 'rgb(255,255,255)';
+
+        // ストレージの初期化
+        var myStorage = localStorage;
+        window.onload = initLocalStorage();
+
+        // PC対応
+        canvas.addEventListener('mousedown', startPoint, false);
+        canvas.addEventListener('mousemove', movePoint, false);
+        canvas.addEventListener('mouseup', endPoint, false);
+        // スマホ対応
+        canvas.addEventListener('touchstart', startPoint, false);
+        canvas.addEventListener('touchmove', movePoint, false);
+        canvas.addEventListener('touchend', endPoint, false);
+
+        document.body.addEventListener("touchstart", function (e) {
+            if (e.target == canvas) {
+                e.preventDefault();
+            }
+        }, false);
+        document.body.addEventListener("touchend", function (e) {
+            if (e.target == canvas) {
+                e.preventDefault();
+            }
+        }, false);
+        document.body.addEventListener("touchmove", function (e) {
+            if (e.target == canvas) {
+                e.preventDefault();
+            }
+        }, false);
+
+        function startPoint(e) {
+            e.preventDefault();
+            ctx.beginPath();
+
+            Xpoint = e.layerX;
+            Ypoint = e.layerY - window.scrollY;
+
+            ctx.moveTo(Xpoint, Ypoint);
+        }
+
+        function movePoint(e) {
+            e.preventDefault();
+            if (e.buttons === 1 || e.witch === 1 || e.type == 'touchmove') {
+                Xpoint = e.layerX;
+                Ypoint = e.layerY - window.scrollY;
+                moveflg = 1;
+
+                ctx.lineTo(Xpoint, Ypoint);
+                ctx.lineCap = "round";
+                ctx.lineWidth = defSize * 2;
+                ctx.strokeStyle = defColor;
+                ctx.stroke();
+            }
+        }
+
+        function endPoint(e) {
+            e.preventDefault();
+            if (moveflg === 0) {
+                ctx.lineTo(Xpoint - 1, Ypoint - 1);
+                ctx.lineCap = "round";
+                ctx.lineWidth = defSize * 2;
+                ctx.strokeStyle = defColor;
+                ctx.stroke();
+
+            }
+            moveflg = 0;
+            setLocalStoreage();
+        }
+
+        function clearCanvas() {
+            initLocalStorage();
+            temp = [];
+            resetCanvas();
+        }
+
+        function resetCanvas() {
+            ctx.clearRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
+            ctx.fillStyle = 'rgb(255,255,255)';
+        }
+
+        function chgImg() {
+            var png = canvas.toDataURL();
+            document.getElementById("newImg").src = png;
+        }
+
+        function initLocalStorage() {
+            myStorage.setItem("__log", JSON.stringify([]));
+        }
+        function setLocalStoreage() {
+            var png = canvas.toDataURL();
+            var logs = JSON.parse(myStorage.getItem("__log"));
+
+            setTimeout(function () {
+                logs.unshift({ png: png });
+                myStorage.setItem("__log", JSON.stringify(logs));
+                temp = [];
+            }, 0);
+        }
+
+        function prevCanvas() {
+            var logs = JSON.parse(myStorage.getItem("__log"));
+
+            if (logs.length > 0) {
+                temp.unshift(logs.shift());
+
+                setTimeout(function () {
+                    myStorage.setItem("__log", JSON.stringify(logs));
+                    resetCanvas();
+                    draw(logs[0]['png']);
+                }, 0);
+            }
+        }
+
+        function nextCanvas() {
+            var logs = JSON.parse(myStorage.getItem("__log"));
+
+            if (temp.length > 0) {
+                logs.unshift(temp.shift());
+
+                setTimeout(function () {
+                    myStorage.setItem("__log", JSON.stringify(logs));
+                    resetCanvas();
+                    draw(logs[0]['png']);
+                }, 0);
+            }
+        }
+
+        function draw(src) {
+            var img = new Image();
+            img.src = src;
+
+            img.onload = function () {
+                ctx.drawImage(img, 0, 0);
+            }
+        }
+    </script>
+</body>
+
+</html>
